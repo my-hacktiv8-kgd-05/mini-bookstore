@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Restock Book</title>
+</head>
+<body>
+    <h1>Restock Book</h1>
+    <%- include('../refactor/menu') %>
+    <h3>Title: <%= data.title %></h3>
+    <h3>Author: </h3>
+
+    <form action="/books/restock/<%= data.id %>" method="POST">
+
+        <label>Stock</label><br>
+        <input type="number" name="stock" placeholder="e.g: 50">
+        <br><br>
+
+        <br><br>
+        <button type="submit">Submit</button>
+    </form>
+</body>
+</html>

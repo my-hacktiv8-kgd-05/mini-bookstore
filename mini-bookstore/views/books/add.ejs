@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add New Book</title>
+</head>
+<body>
+    <h1>Add New Book</h1>
+    <%- include('../refactor/menu') %>
+    <% if (error) { %>
+        <p>Error!: <%= error %></p>
+    <% } %> 
+    <form action="/books/add" method="POST">
+        <label>Title</label><br>
+        <input type="text" name="title" placeholder="e.g: Doraemon">
+        <br><br>
+
+        <label>ISBN</label><br>
+        <input type="text" name="isbn" placeholder="e.g: 51689XXX">
+        <br><br>
+
+        <label>Stock</label><br>
+        <input type="number" name="stock" placeholder="e.g: 50">
+        <br><br>
+
+        <label>Price</label><br>
+        <input type="number" name="price" placeholder="e.g: 500000">
+        <br><br>
+
+        <label>Author</label><br>
+        <select name="author">
+            <option value="">Choose...</option>
+            <% data.forEach( author => { %>
+                <option value="<%= author.id %>"><%= author.name %></option>
+            <% }) %> 
+        </select>
+
+        <br><br>
+        <button type="submit">Submit</button>
+    </form>
+</body>
+</html>

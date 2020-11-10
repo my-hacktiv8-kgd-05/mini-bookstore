@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book List</title>
+</head>
+<body>
+    <h1>Book List</h1>
+    <%- include('../refactor/menu') %>
+    <a href="/books/">Back to List Books</a> | <a href="/books/emptyList">Books Out of Stock</a>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>No</th>
+                <th>Title</th>
+                <th>ISBN</th>
+                <th>Price</th>
+                <th>Stock</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% data.forEach( (book, index) => { %>
+                <tr>
+                    <td><%= index + 1 %></td>
+                    <td><%= book.title %></td>
+                    <td><%= book.isbn %></td>
+                    <td><%= book.price %></td>
+                    <td><%= book.stock %></td>
+                    <td><a href="/books/restock/<%= book.id %>">Restock</a> | <a href="/books/delete/<%= book.id %>">Delete</a></td>
+                </tr>
+            <% }) %> 
+        </tbody>
+    </table>
+</body>
+</html>
